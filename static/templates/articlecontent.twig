@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>{{article.aTitle}} - MoeMoe Gal!!!</title>
+   
+    <link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/static/css/public/mdui.css">
+    <link rel="stylesheet" href="/static/css/public/common.css">
+    <link rel="stylesheet" href="/static/css/articlecontent.css">
+    <link rel="stylesheet" href="/static/css/public/mdicon.css">
+    <link rel="stylesheet" href="/static/css/public/github-markdown.min.css">
+</head>
+
+<body> {{ include('/public/NavigationRail.twig') }}
+    <div class="app"> {{ include('/public/TitleBar.twig') }}
+        <div class="main_content">
+            <div class="article-content" data-aid="{{article.AID}}">
+                <img class="article-content-cover" src="{{article.aCover}}" alt="文章封面">
+                <div class="article-content-main">
+                    <div class="text-title-large text-effect-udl">{{article.aTitle}}</div>
+                    <div class="article-content-statistics">
+                        <div class="text-gray-small">{{article.aDateTime|date('Y-m-d H:i:s','Asia/Shanghai')}} (UTC/GMT+08:00)</div>
+                        <div class="text-gray-small">浏览量:{{article.aPageview}}</div>
+                    </div>
+                    {% if article.aIsReprint == 1 %}
+                    <div class="article-reprinttag">转载</div>
+                    {% endif %}
+                    <hr class="solid">
+                    <div class="text-gray-small text-effect-color text-fullcenter text-bold">
+                        <a class="nonestyle " target="_blank" href="/user?uid={{article.aUID}}">{{article.Nickname}}</a>
+                    </div>
+                    <hr class="solid">
+                    <div class="markdown-body article-content-text" id="markdownViewer" data-rawmd="{{article.aContent}}">
+                        <div class="article-cotent-loading">
+                            <mdui-linear-progress id="article_loading"></mdui-linear-progress>
+                            <div class="text-center-std">渲染中</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% if article.aLicense != 3 %}
+            <div class="article-addinfo">
+                {% if article.aLicense == 1 %}
+                <div>本文使用<a class="pink" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans" target="_blank">CC BY-NC-SA 4.0(署名—非商业性使用—相同方式共享 4.0 协议国际版)</a>协议</div>
+                {% elseif article.aLicense == 2 %}
+                <div>本文使用<a class="pink" href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank">CC BY-NC-SA 3.0 CN(署名-非商业性使用-相同方式共享 3.0中国大陆)</a>协议</div>
+                {% endif %}
+            </div>
+            {% endif %}
+            <div class="article-comment">
+                <div class="text-subtitle text-effect-udl">评论</div> 
+                {% if self.uNickname is defined %}
+                <div class="article-comment-add">
+                    <mdui-text-field variant="outlined" rows="2" placeholder="友善交流呦~( •̀ ω •́ )✧" id="comment-text"></mdui-text-field>
+                    <mdui-button variant="outlined" id="submitcomment">提交评论</mdui-button>
+                </div>
+                {% else %}
+                <div class="text-gray-small text-bold text-center">(｡･ω･｡)ﾉ♡ 哎呀呀，您还没有登录呢，所以现在不可以评论哒~快去登录一下嘛(づ｡◕‿‿◕｡)づ</div>
+                {% endif %}
+                <hr class="pink">
+				{% if article.aComments is defined and article.aComments is not empty %} 	
+					{% for comment in article.aComments.comments %} 
+					<div class="article-comment-item">
+                   		<div class="article-comment-item-user">
+                        	<img class="article-comment-item-user-photo" src="{{comment.uProfilePhoto}}">
+                            <a class="nonestyle" href="/user?uid={{comment.UID}}" target="_blank"><div class="article-comment-item-user-nickname text-effect-color">{{comment.uNickname}}</div></a>
+                            {% if comment.uGtags is defined and comment.uGtags is not empty %}
+                            <div style="width: 5px;"></div>
+                            <div class="user-grouptags">
+						        {% for tag in comment.uGtags %}
+							    <div class="grouptag">{{tag}}</div>
+						        {% endfor %}
+                            </div>
+						    {% endif %}
+                    	</div>
+                        <div class="article-comment-item-underbox">
+                            <div class="text-gray-small">{{comment.time|date("Y-m-d H:m:s","Asia/Shanghai")}}</div>
+                    	    <div class="content">{{comment.content}}</div>
+                            <hr class="pink">
+                        </div>
+                	</div> 
+					{% endfor %} 
+				{% else %} 
+					<div> 暂无评论 </div> 
+				{% endif %}
+            </div>
+        </div>
+    </div>
+    <script src="/static/js/public/markdown-it.min.js"></script>
+    <script type="module" src="/static/js/public/ui_init.js"></script>
+    <script type="module" src="/static/js/public/MarkdownBodyRender.js"></script>
+    <script type="module" src="/static/js/article_visit_stats.js"></script>
+    {% if self.uNickname is defined %}
+    <script type="module" src="/static/js/articleComment.js"></script>
+    {% endif %}
+</body>
+
+</html>

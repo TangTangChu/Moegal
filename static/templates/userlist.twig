@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<title>用户列表 MoeMoe Gal!!!</title>
+	<base href="/">
+	<link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="/static/css/public/common.css">
+	<link rel="stylesheet" href="/static/css/public/mdui.css">
+	<link rel="stylesheet" href="/static/css/userlist.css">
+	<link rel="stylesheet" href="/static/css/public/mdicon.css">
+</head>
+<body> 
+    {{ include('/public/NavigationRail.twig') }} 
+    <div class="app"> 
+        {{ include('/public/TitleBar.twig') }} 
+        <div class="main_content">
+			<div class="userlist-card">
+				<div class="text-title-large">用户列表</div>
+				<div class="text-subtitle">本站目前已有 {{display.count}} 位用户</div>
+				<div class="tcontainer">
+					<table>
+						<thead>
+							<th>UID</th>
+							<th></th>
+							<th>昵称</th>
+							<th>身份组</th>
+							<th>资源分享数</th>
+							<th>文章分享数</th>
+							<th>加入时间</th>
+						</thead>
+						<tbody> {% for UserItem in display.users %} <tr>
+								<td><b>{{UserItem.UID}}</b></td>
+								<td>{{include("/public/UserProfilePhotoItem.twig")}}</td>
+								<td><a class="nonestyle text-effect-color text-bold" href="/user?uid={{UserItem.UID}}" target="_blank"><b>{{UserItem.uNickname}}</b></a></td>
+								<td>
+                                    {% if UserItem.uGtags is defined and UserItem.uGtags is not empty %} 
+                                    <div class="user-grouptags"> 
+                                        {% for tag in UserItem.uGtags %} 
+                                        <div class="grouptag">{{tag}}</div> 
+                                        {% endfor %} 
+                                    </div> 
+                                    {% else %}
+                                     无 
+                                    {% endif %} 
+                                </td>
+								<td>{{UserItem.uGCount}}</td>
+								<td>{{UserItem.uACount}}</td>
+								<td>{{UserItem.uRegDateTime|date("Y年m月d日")}}</td>
+							</tr> 
+							{% endfor %} 
+						</tbody>
+						<colgroup>
+							<col style="width:80px;">
+							<col>
+							<col>
+							<col>
+							<col>
+							<col>
+							<col>
+						</colgroup>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="module" src="/static/js/public/ui_init.js"></script>
+</body>
+</html>

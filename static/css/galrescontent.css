@@ -1,0 +1,102 @@
+.main_content{
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+.galresc-info{
+    width: 1000px;
+    height: 250px;
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.galresc-info-cover{
+    height: 250px;
+    width: 500px;
+    object-fit: cover;
+    box-shadow: rgba(0, 0, 0, 0.24) 2px 0px 5px;
+}
+.galresc-info-base{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    font-size: 14px;
+    background-color: rgba(255, 255, 255, 0.126);
+    padding: 5px;
+    padding-left: 15px;
+    box-sizing: border-box;
+    justify-content: space-between;
+}
+.galresc-info-base-title-main{
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: solid underline #f7317300 4px;
+    transition: text-decoration 0.3s ease-in-out;
+}
+.galresc-info-base-title-main:hover{
+    text-decoration: solid underline #f7317364 4px;
+}
+.galresc-info-base-title-sub{
+    font-size: 21px;
+    font-weight: bold;
+    color: gray;
+    
+}
+.galresc-info-base-other
+{
+    font-size: 16px;
+    padding-top: 8px;
+}
+.galrecs-info-base-other-text{
+    white-space: pre-line;
+}
+.galrecs-info-base-other-tag{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 2px;
+    gap: 3px 8px;
+}
+.galrecs-info-base-other-tag-item{
+    background-color: #f73173;
+    color: white;
+    border-radius: 10px;
+    height: 25px;
+    width: auto;
+    display: flex;
+    padding: 5px;
+    box-sizing: border-box;
+    align-items: center;
+    text-align: center;
+    font-size: 13px;
+}
+.galresc-content{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    overflow: hidden;
+    border-radius: 10px;
+    width: 1000px;
+    height: auto;
+    padding: 8px;
+    box-sizing: border-box;
+}
+.galresc-addinfo{
+    width: 1000px;
+    font-size: 18px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    overflow: hidden;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.galresc-action{
+    width: 1000px;
+    gap: 0 5px;
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<title>分享 MoeMoe Gal!!!</title>
+	<base href="/">
+	<link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="/static/css/public/common.css">
+	<link rel="stylesheet" href="/static/css/sharegal.css">
+	<link rel="stylesheet" href="/static/css/public/mdui.css">
+	<link rel="stylesheet" href="/static/css/public/mdicon.css">
+</head>
+<body>
+	{{ include('/public/NavigationRail.twig') }}
+	<div class="app">
+		{{ include('/public/TitleBar.twig') }}
+		<div class="main_content">
+			<mdui-snackbar close-on-outside-click id="snackbar1"></mdui-snackbar>
+			<div class="sharegal-card">
+                <div class="text-title-large">分享Gal资源</div>
+				<div class="text-subtitle">选择封面</div>
+				{{ include('/public/imgselector.twig') }}
+				<div class="text-subtitle">基本信息</div>
+				<div class="sharegal-card-nitem">
+					<div class="sharegal-card-item">
+						<mdui-text-field variant="outlined" id="gal_name_zhsp" required="" label="资源名(简体中文)"></mdui-text-field>
+					</div>
+					<div class="sharegal-card-item">
+						<mdui-text-field id="gal_name" variant="outlined" required="" label="资源原名"></mdui-text-field>
+					</div>
+					<div class="sharegal-card-item">
+						<mdui-text-field id="gal_name_tralias" variant="outlined"  label="翻译别名(选填,建议使用、[逗号]分割)" placeholder="(选填)可输入多个"></mdui-text-field>
+					</div>
+					<div class="sharegal-card-item">
+						<mdui-text-field id="gal_released" variant="outlined" required="" label="首次发行日期" type="date"></mdui-text-field>
+					</div>
+					<div class="sharegal-card-item">
+						<mdui-text-field id="gal_developer" variant="outlined" required="" label="制作公司"></mdui-text-field>
+					</div>
+					<div class="sharegal-card-item">
+						<mdui-text-field id="gal_abs" variant="outlined" required="" label="缩略简介"></mdui-text-field>
+					</div>
+					<div class="sharegal-card-item">
+						<mdui-text-field id="gal_tags" variant="outlined" required="" placeholder="请用 |(管道符) 将每个标签隔开" helper="所有空格将被清除" label="标签"></mdui-text-field>
+					</div>
+					<div class="sharegal-card-item">
+						<mdui-select id="gal_displayname" value="1" variant="outlined" required="" label="显示名称" helper="Gal展示时的主名字" end-icon="arrow_drop_down--outlined">
+							<mdui-menu-item value="1">译名</mdui-menu-item>
+							<mdui-menu-item value="2">原名</mdui-menu-item>
+						</mdui-select>
+					</div>	
+				</div>
+				<div class="text-subtitle">上传文件</div>
+				<div class="sharegal-card-upgalres">
+					选择文件
+					<input type="file" accept=".zip,.7z,.rar,.xz,.tar,.gz,.bz2,.iso,.dmg,.lzh" id="input_galfile">
+				</div>
+				<div class="text-gray-small" id="selected_galfile">未选择文件</div>
+                <div class="text-subtitle">详细介绍(Markdown语法)</div>
+				{{ include('/public/MarkdownEditor.twig') }}
+				<mdui-button id="sharegal_submit">提交</mdui-button>
+			</div>	
+		</div>
+	</div>
+	<script type="module" src="/static/js/public/ui_init.js"></script>
+	<script type="module" src="/static/js/uploadgal.js"></script>
+</body>
+</html>

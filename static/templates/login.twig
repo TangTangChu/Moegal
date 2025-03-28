@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<title>登录  MoeMoe Gal!!!</title>
+	<base href="/">
+	<link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="/static/css/public/mdui.css">
+	<link rel="stylesheet" href="/static/css/public/common.css">
+	<link rel="stylesheet" href="/static/css/login.css">
+	<link rel="stylesheet" href="/static/css/public/mdicon.css">
+</head>
+<body>
+	{{ include('/public/NavigationRail.twig') }}
+	<div class="app">
+		{{ include('/public/TitleBar.twig') }}
+		<div class="main_content">
+			<mdui-snackbar close-on-outside-click id="snackbar1"></mdui-snackbar>
+			<div class="login-card">
+				<div class="login-card_title">
+					<h2>登 录</h2>
+				</div>
+				<div class="login-card_uspwd">
+					<div class="login-card_textfield">
+						<mdui-text-field variant="outlined" id="uservalue" required label="账户" placeholder="输入邮箱或者UID"></mdui-text-field>
+					</div>
+					<div class="login-card_textfield">
+						<mdui-text-field variant="outlined" id="passwdvalue" required label="密码" placeholder="输入密码" type="password"></mdui-text-field>
+					</div>
+				</div>
+				<div class="login-card_action">
+					<mdui-button variant="filled" id="btn_login" full-width>登录</mdui-button>
+				</div>
+				<div class="login-card_reg"> 还没有账号？<a href="/reg" class="pink">来和本站签订契约吧！</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="module" src="/static/js/public/ui_init.js"></script>
+	<script type="module" src="/static/js/login.js"></script>
+</body>
+</html>

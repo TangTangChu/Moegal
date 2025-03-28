@@ -1,0 +1,30 @@
+.bg{
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+#ibg{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(60px);
+    position: relative;
+    z-index: -1;
+}
+.bg-title{
+    float: left;
+    font-size: 58px;
+    color: white;
+    position: absolute;
+    z-index: 1;
+    text-shadow:0 1px #121212;
+          
+}
+.content-count{
+    font-size: 20px;
+}

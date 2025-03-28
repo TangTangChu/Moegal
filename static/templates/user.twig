@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<title>{{display.uNickname}} - MoeMoe Gal!!!</title>
+	<base href="/">
+	<link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="/static/css/public/mdui.css">
+	<link rel="stylesheet" href="/static/css/public/common.css">
+	<link rel="stylesheet" href="/static/css/user.css">
+	<link rel="stylesheet" href="/static/css/public/mdicon.css">
+</head>
+<body>
+	{{ include('/public/NavigationRail.twig') }}
+	<div class="app">
+		{{ include('/public/TitleBar.twig') }}
+		<div class="main_content">
+			<div class="user-info">
+				<div class="user-bg">
+					<img id="ubg" class="user-ubg" src="{{display.uProfileCover}}">
+					{% if isself == 1 %}
+					<mdui-button  id="changecover" icon="edit--outlined">更改背景</mdui-button>
+					{% endif %}
+				</div>
+				<div class="user-profile">
+					<div class="user-profile-base">
+						<img class="user-profilephoto" src="{{display.uProfilePhoto}}" id="profilephoto">
+						<div class="user-profile-base-addinfo">
+							<b>{{display.uNickname}}</b>
+						</div>
+					</div>
+					<div class="user-profile-detail">
+						<p>{{display.uRegDateTime|date("Y年m月d日")}}加入MOEGAL</p>
+						{% if display.uGtags is defined and display.uGtags is not empty %}
+						<div class="user-grouptags">
+							{% for tag in display.uGtags %}
+							<div class="grouptag">{{tag}}</div>
+							{% endfor %}
+						</div>
+						{% endif %}
+					</div>
+				</div>
+			</div>
+			<mdui-divider></mdui-divider>
+			<div class="user-share">
+				<mdui-tabs value="tab-1">
+					<mdui-tab icon="inbox--outlined" inline value="tab-1">分享的资源</mdui-tab>
+					<mdui-tab icon="article--outlined" inline value="tab-2">发布的文章</mdui-tab>
+					{% if isself == 1 %}
+					<mdui-tab icon="settings_applications--outlined" inline value="tab-3">账户设置</mdui-tab>
+					{% endif %}
+					<mdui-tab-panel slot="panel" value="tab-1">
+						<div class="panelcontent">
+							{% if display.galList is defined and display.galList is not empty %}
+							<div class="GalCard-container">
+								{% for galItem in display.galList %}
+								{{include("/public/GalCard.twig")}}
+								{% endfor %}
+							</div>
+							{% else %}
+							<div class="text-gray-small">未找到内容</div>
+							{% endif %}
+						</div>
+					</mdui-tab-panel>
+					<mdui-tab-panel slot="panel" value="tab-2">
+						<div class="panelcontent">
+							{% if display.articleList is defined and display.articleList is not empty %}
+							<div class="ArticleCard-container">
+								{% for articleItem in display.articleList %}
+									{{include("/public/ArticleCard.twig")}}
+								{% endfor %}
+							</div>
+							{% else %}
+							<div class="text-gray-small">未找到内容</div>
+							{% endif %}
+						</div>
+					</mdui-tab-panel>
+					{% if isself == 1 %}
+					<mdui-tab-panel slot="panel" value="tab-3">
+						<div class="user-st">
+							<div class="text-subtitle">更改头像</div>
+							<div class="user-avatar-editbox">
+								选择或拖拽头像至此
+								<input type="file" accept="image/png, image/jpeg" id="input_avatar">
+							</div>
+							<div class="aecontainer">
+								<img id="avataredit">
+							</div>
+							<mdui-button id="user-st-changavater" variant="text">修改头像</mdui-button>
+							<div class="text-subtitle">其他信息</div>
+							<div class="flexbox-rowwarp-sb">
+								<div class="flexbox-rowwarp-sb-sb-item">
+									<mdui-text-field value="{{self.UID}}" label="UID" readonly="" variant="outlined"></mdui-text-field>
+								</div>
+								<div class="flexbox-rowwarp-sb-sb-item">
+									<mdui-text-field id="user-st-nickname" value="{{self.uNickname}}" variant="outlined" label="昵称" maxlength="12" required="" counter=""></mdui-text-field>
+								</div>
+								<div class="flexbox-rowwarp-sb-sb-item">
+									<mdui-text-field id="user-st-email" label="邮箱" type="email" required="" value="{{self.uEmail}}" variant="outlined"></mdui-text-field>
+								</div>
+							</div>
+							<mdui-button variant="text" id="user-st-baseinfo-submit">修改资料</mdui-button>
+							<div class="user-st-changepasswd">
+								<div class="text-subtitle">修改密码</div>
+								<mdui-text-field id="user-st-oripasswd" type="password" label="初始密码" variant="outlined" required toggle-password="true" counter="true"></mdui-text-field>
+								<mdui-text-field id="user-st-newpasswd" type="password" label="新密码" variant="outlined" minlength="6" maxlength="12" counter="true" toggle-Password="true" required></mdui-text-field>
+								<mdui-text-field id="user-st-tnewpasswd" type="password" label="再次确认新密码" variant="outlined" minlength="6" maxlength="12" counter="true" toggle-Password="true" required></mdui-text-field>
+								<mdui-button id="user-st-cp-submit" variant="text">修改密码</mdui-button>
+							</div>
+						</div>
+						<br>
+					</mdui-tab-panel>
+					{% endif %}
+				</mdui-tabs>
+			</div>
+		</div>
+	</div>
+	<mdui-dialog close-on-overlay-click icon="edit--outlined" headline="更改背景" id="change_userbg">
+			{{ include('/public/imgselector.twig') }}
+			<mdui-button slot="action" variant="text" id="dialog_cancel">取消</mdui-button>
+			<mdui-button slot="action" variant="tonal" id="dialog_confirm">确认修改</mdui-button>
+	</mdui-dialog>
+	<script type="module" src="/static/js/public/ui_init.js"></script>
+	{% if isself == 1 %}
+	<script type="module" src="/static/js/user.js"></script>
+	<link rel="stylesheet" href="/static/css/public/cropper.min.css">
+	{% endif %}
+</body>
+</html>

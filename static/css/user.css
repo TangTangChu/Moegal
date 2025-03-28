@@ -1,0 +1,132 @@
+.main_content{
+    align-items: center;
+}
+.user-info{
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.user-profile{
+    display: flex;
+    flex-direction: row;
+    padding: 6px;
+    box-sizing: border-box;
+}
+.user-profile-base{
+    display: flex;
+    flex-direction: column;
+    padding: 4px;
+    padding-left: 10px;
+    width: 140px;
+    align-items: center;
+    justify-content: space-between;
+}
+.user-profilephoto{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.user-profile-base-addinfo{
+    align-items: center;
+    padding: 3px;
+}
+.user-profile-detail{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-end;
+    flex-grow: 1;
+}
+.user-bg{
+    position: relative;
+}
+#changecover{
+    position: absolute;
+    z-index: 100;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+    left: 40%;
+    right: 40%;
+    bottom: 5%;
+}
+.user-bg:hover .user-ubg{
+    opacity: 0.6;
+}
+.user-bg:hover #changecover{
+    opacity: 1;
+}
+.user-bg-editicon{
+    height: 32px;
+    width: 32px;
+}
+.user-ubg{
+    height: 200px;
+    width: 100%;
+    object-fit:cover;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.user-share{
+    width: 800px;
+    margin-top: 10px;
+    height: 100%;
+    box-sizing: border-box;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.panelcontent{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.GalCard-container{
+    justify-content: space-between;
+}
+
+.user-st{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.user-avatar-editbox{
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    outline: 0.08px dashed gray;
+    border-radius: 6px;
+    width: 160px;
+    height: 40px;
+}
+.user-avatar-editbox input{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.user-st-changepasswd{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+}
+
+#input-imgfile{
+    display: none;
+}

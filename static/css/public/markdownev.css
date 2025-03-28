@@ -1,0 +1,58 @@
+.markdowneditor{
+    width: 100%;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+
+}
+.markdowneditor .toolbar{
+    border-radius: 4px;
+    height: 60px;
+    width: 100%;
+    display: flex;
+    padding: 2px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 3px 5px;
+    box-sizing: border-box;
+    align-items: center;
+}
+.markdowneditor .EV{
+    display: flex;
+    flex-direction: row;
+}
+.markdowneditor .EV #editor{
+    width: 50%;
+    height: 800px;
+    font-size: 18px;
+    outline: 0.5px solid black;
+    font-family: monospace;
+    white-space: pre-wrap; 
+    overflow-wrap: break-word; 
+    overflow: auto; 
+    padding: 10px;
+    box-sizing: border-box;
+}
+.markdowneditor .EV #editor pre {
+    white-space: pre-wrap; 
+    overflow-wrap: break-word; 
+    margin: 0; 
+    padding: 0; 
+}
+
+.markdowneditor .EV #editor code {
+    white-space: pre-wrap; 
+    overflow-wrap: break-word; 
+}
+.markdowneditor .EV #viewer{
+    width: 50%;
+    height: 800px;
+    outline: 0.5px solid black;
+    background-color: white;
+    overflow: auto;
+    box-sizing: border-box;
+    padding: 5px;
+}
+.markdowneditor .EV #rawmarkdown{
+    display: none;
+}

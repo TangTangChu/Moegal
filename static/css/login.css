@@ -1,0 +1,39 @@
+.main_content{
+    align-items: center;
+    padding: 28px;
+}
+
+.login-card{
+    max-width: 512px;
+    width: 100%;
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 15px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    background-color: white;
+}
+.login-card_title{
+    align-items: center;
+    display: flex;
+    justify-content: stretch;
+    padding: 14px;
+}
+.login-card_uspwd{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px;
+    width: 90%;
+}
+.login-card_action{
+    width: 75%;
+    padding: 12px;
+}
+.login-card_textfield{
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 10px;
+    width: 100%;
+}

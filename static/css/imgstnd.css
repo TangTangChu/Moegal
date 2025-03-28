@@ -1,0 +1,18 @@
+.main_content{
+    align-items: center;
+    justify-content: center;
+}
+.imgstnd-card{
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.imgstn_imgview{
+    object-fit: contain;
+    width: 800px;
+    max-height: 600px;
+}

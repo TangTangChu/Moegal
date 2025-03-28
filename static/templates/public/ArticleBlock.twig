@@ -1,0 +1,11 @@
+<a class="nonestyle" href="/article/show?aid={{articleItem.AID}}" target="_blank">
+<div class="item">
+    <div class="item-cover">
+        <img class="item-cover-img" src="{{articleItem.aCover}}">
+        <div class="item-cover-datetime">{{articleItem.aDateTime|date("Y-m-d")}}</div>
+        <div class="item-cover-author">{{articleItem.uNickname}}<img src="{{articleItem.uProfilePhoto}}"></div>
+        <div class="item-cover-title">{{articleItem.aTitle}}</div>
+    </div>
+    <div class="item-abs">{{articleItem.aAbstract}}</div>
+</div>
+</a>

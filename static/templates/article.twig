@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<title>文章 - MoeMoe Gal!!!</title>
+	<base href="/">
+	<link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="/static/css/public/mdui.css">
+	<link rel="stylesheet" href="/static/css/public/common.css">
+	<link rel="stylesheet" href="/static/css/article.css">
+	<link rel="stylesheet" href="/static/css/public/mdicon.css">
+</head>
+<body>
+	{{ include('/public/NavigationRail.twig') }}
+	<div class="app">
+		{{ include('/public/TitleBar.twig') }}
+		<div class="main_content">
+			<div class="article-flow">
+                {% for articleItem in display.artclist %}
+                {{ include('/public/ArticleBlock.twig') }}
+                {% endfor %}
+            </div>
+            {{ include("/public/DropNavbar.twig")}}
+		</div>
+	</div>
+	<script type="module" src="/static/js/public/ui_init.js"></script>
+</body>
+</html>

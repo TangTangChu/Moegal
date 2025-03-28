@@ -1,0 +1,30 @@
+.main_content{
+    justify-content: center;
+    align-items: center;
+}
+.shareartc-card{
+    width: 1400px;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 15px;
+    gap:7px;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+}
+.shareartc-card-title{
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+}
+.share-artc-cgroup{
+    display: flex;
+    flex-direction: row-reverse;
+    padding-top: 8px;
+}
+.shareartc-card-t2{
+    font-size: 22px;
+    font-weight: bold;
+}

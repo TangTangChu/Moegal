@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<title>404 - MoeMoe Gal!!!</title>
+	<base href="/">
+	<link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="/static/css/public/mdui.css">
+	<link rel="stylesheet" href="/static/css/public/common.css">
+	<link rel="stylesheet" href="/static/css/notfound.css">
+	<link rel="stylesheet" href="/static/css/public/mdicon.css">
+</head>
+<body>
+	{{ include('/public/NavigationRail.twig') }}
+	<div class="app">
+		{{ include('/public/TitleBar.twig') }}
+		<div class="main_content">
+			<div class="cardbox">
+				<h1>404 Not Found</h1>
+				<h2>少女祈愿未达，页面已消失在星空…</h2>
+				<h2>Ｏ(≧口≦)Ｏ</h2>
+				<p>未能命中判定点，请检查你的访问！<br>您当前尝试访问   <b>{{tryurl}}</b></p>
+			</div>
+		</div>
+	</div>
+	<script type="module" src="/static/js/public/ui_init.js"></script>
+</body>
+</html>

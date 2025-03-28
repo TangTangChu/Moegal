@@ -1,0 +1,14 @@
+.main_content{
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 28px;
+}
+.cardbox{
+    
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 16px;
+    align-items: center;
+}

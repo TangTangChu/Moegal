@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-time Markdown Code Editor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/default.min.css">
+    <style>
+        #code-editor {
+            font-family: monospace;
+            border: 1px solid #ccc;
+            padding: 10px;
+            min-height: 100px;
+            white-space: pre-wrap;
+            outline: none; /* 移除默认的焦点边框 */
+        }
+    </style>
+</head>
+<body>
+    <div id="code-editor" contenteditable="true"></div>
+
+    <!-- 使用 type="module" 来支持 ESM -->
+    <script type="module">
+        // 动态导入 highlight.js 的 ESM 版本
+        import highlightJs from 'https://cdn.jsdelivr.net/npm/highlight.js@11.11.1/+esm';
+
+        // 动态导入 Markdown 语言模块
+        import markdown from 'https://cdn.jsdelivr.net/npm/highlight.js@11.11.1/es/languages/markdown.min.js';
+
+        // 注册 Markdown 语言
+        highlightJs.registerLanguage('markdown', markdown);
+
+        const codeEditor = document.getElementById('code-editor');
+
+        // 保存光标位置
+        function saveCursorPosition() {
+            const selection = window.getSelection();
+            const range = selection.getRangeAt(0);
+            const preCaretRange = range.cloneRange();
+            preCaretRange.selectNodeContents(codeEditor);
+            preCaretRange.setEnd(range.endContainer, range.endOffset);
+            return preCaretRange.toString().length;
+        }
+
+        // 恢复光标位置
+        function restoreCursorPosition(position) {
+            const selection = window.getSelection();
+            const range = document.createRange();
+            let currentNode = null;
+            let charCount = 0;
+
+            // 遍历子节点，找到光标位置
+            function traverse(node) {
+                if (node.nodeType === Node.TEXT_NODE) {
+                    const nextCharCount = charCount + node.length;
+                    if (position <= nextCharCount) {
+                        range.setStart(node, position - charCount);
+                        range.collapse(true);
+                        return true;
+                    }
+                    charCount = nextCharCount;
+                } else {
+                    for (let child of node.childNodes) {
+                        if (traverse(child)) return true;
+                    }
+                }
+                return false;
+            }
+
+            traverse(codeEditor);
+            selection.removeAllRanges();
+            selection.addRange(range);
+        }
+
+        // 实时高亮代码
+        codeEditor.addEventListener('input', () => {
+            const cursorPosition = saveCursorPosition(); // 保存光标位置
+            const code = codeEditor.innerText;
+
+            // 重置内容并高亮
+            codeEditor.innerHTML = `<pre><code class="language-markdown">${code}</code></pre>`;
+            highlightJs.highlightElement(codeEditor.querySelector('code')); // 使用 highlightElement
+
+            // 恢复光标位置
+            restoreCursorPosition(cursorPosition);
+        });
+
+        // 初始化高亮
+        codeEditor.innerHTML = `<pre><code class="language-markdown">${codeEditor.innerText}</code></pre>`;
+        highlightJs.highlightElement(codeEditor.querySelector('code'));
+    </script>
+</body>
+</html>

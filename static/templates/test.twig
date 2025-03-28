@@ -1,0 +1,44 @@
+<html>
+<head>
+	<title>Slide Image Sample</title>
+	<style>
+		#container {
+			width: 400px;
+			height: 300px;
+			overflow: hidden;
+		}
+
+		#photo {
+			width: 1200px;
+			animation: switch 5s ease-out infinite;
+		}
+
+		#photo > img {
+			float: left;
+			width: 400px;
+			height: 300px;
+		}
+
+		@keyframes switch {
+			0%, 25% {
+				margin-left: 0;
+			}
+			35%, 60% {
+				margin-left: -400px;
+			}
+			70%, 100% {
+				margin-left: -800px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<div id="photo">
+			<img src="/static/images/58681464_p0_エロマンガ先生.png" />
+			<img src="/static/images/63435655_p0_特別になった.jpg" />
+			<img src="/static/images/63491273_p0_あぐらかいてる紗霧ちゃん.png" />
+		</div>
+	</div>
+</body>
+</html>

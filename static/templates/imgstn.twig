@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<title>图像站  MoeMoe Gal!!!</title>
+	<base href="/">
+	<link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="/static/css/public/common.css">
+    <link rel="stylesheet" href="/static/css/imgstn.css">
+	<link rel="stylesheet" href="/static/css/public/mdui.css">
+	<link rel="stylesheet" href="/static/css/public/mdicon.css">
+</head>
+<body>
+	{{ include('/public/NavigationRail.twig') }}
+	<div class="app">
+		{{ include('/public/TitleBar.twig') }}
+		<div class="main_content">
+            <div class="igsnavbar">
+                <div class="igsnavbar-title">图像站</div>
+				<mdui-button variant="text" href="/upload/img" target="_blank">前往上传</mdui-button>
+				<div style="flex: 1;"></div>
+                {{ include("/public/DropNavbar.twig")}}
+            </div>
+            <div class="imgstn-rowwarp">
+            {%for imgl in imglist %}
+                {{include('/public/imgstn_img.twig')}}
+            {% endfor %}
+            </div>
+		</div>
+	</div>
+	<script type="module" src="/static/js/public/ui_init.js"></script>
+	<script type="module" src="/static/js/asyncLoadImage.js"></script>
+</body>
+</html>

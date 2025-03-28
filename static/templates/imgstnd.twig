@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<title>图像详情 MoeMoe Gal!!!</title>
+	<base href="/">
+	<link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="/static/css/public/common.css">
+	<link rel="stylesheet" href="/static/css/imgstnd.css">
+	<link rel="stylesheet" href="/static/css/public/mdui.css">
+	<link rel="stylesheet" href="/static/css/public/mdicon.css">
+	
+</head>
+<body> {{ include('/public/NavigationRail.twig') }} <div class="app"> {{ include('/public/TitleBar.twig') }} <div class="main_content">
+			<div class="imgstnd-card">
+				<div class="text-title-large">图像详情</div>
+				<br>
+				<img class="imgstn_imgview" id="imgview" src="{{img.iPath}}">
+				<br>
+				<div class="text-subtitle">附加信息</div>
+				<table>
+					<tbody>
+						<tr>
+							<td>名称</td>
+							<td>{{img.iName}}</td>
+						</tr>
+						<tr>
+							<td>IID</td>
+							<td id="IID">{{img.IID}}</td>
+						</tr>
+						<tr>
+							<td>图像大小</td>
+							<td>{{img.iSize}} MiB</td>
+						</tr>
+						<tr>
+							<td>图像尺寸</td>
+							<td id="imgpix"></td>
+						</tr>
+						<tr>
+							<td>图像作者</td>
+							<td>{{img.iAuthor|default('未提供')}}</td>
+						</tr>
+						<tr>
+							<td>图像来源</td>
+							<td>{{img.iFrom|default('未提供')}}</td>
+						</tr>
+						<tr>
+							<td>图像描述</td>
+							<td>{{img.iDesc|default('未提供')}}</td>
+						</tr>
+						<tr>
+							<td>图像路径</td>
+							<td><a class="pink">{{img.iPath}}</a></td>
+						</tr>
+						<tr>
+							<td>在Markdown中使用</td>
+							<td>![]({{img.iPath}})</td>
+						</tr>
+						<tr>
+							<td>图像上传者</td>
+							<td><a class="nonestyle text-effect-color text-bold" href="/user?uid={{img.iBy}}">{{img.uNickname}}</a></td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="text-subtitle">历史操作</div>
+				<div class="text-gray-small">所有时间戳均基于服务器本地时钟记录，由于外部不可控因素影响，可能存在显著的误差</div>
+				<div class="text-gray-small">如无特殊说明，以下时间均为东八区时间(UTC/GMT+08:00)</div>
+				{% if img.iHistory is defined and img.iHistory is not empty %}
+				<table>
+					<tbody>
+						{% for key,value in img.iHistoryJ %}
+						<tr>
+							<td>{{key|date('Y-m-d H:i:s','Asia/Shanghai')}}</td>
+							<td>{{value}}</td>
+						</tr>
+						{% endfor %}
+						
+					</tbody>
+					<colgroup>
+						<col>
+						<col>
+					</colgroup>
+				</table>
+				{{img.iHistory.key}}
+				{% else %}
+				<div class="text-orange-medium">由于该图像的上传时间早于历史操作记录功能的部署时间，因此无法通过系统日志追溯相关操作记录。</div>
+				{% endif %}
+				<mdui-button id="btn_del" variant="text">删除图片</mdui-button>
+			</div>
+			<mdui-dialog headline="确认删除" id="dialog-del" icon="warning--outlined" close-on-overlay-click close-on-esc>
+				<mdui-button slot="action" variant="text" id="del-cancel">取消</mdui-button>
+				<mdui-button slot="action" variant="tonal" id="del-confirm">删除</mdui-button>
+			</mdui-dialog>
+		</div>
+	</div>
+	<script type="module" src="/static/js/imgstnd.js"></script>
+	<script type="module" src="/static/js/public/ui_init.js"></script>
+</body>
+</html>

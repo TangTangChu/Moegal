@@ -1,0 +1,22 @@
+<div class="titlebar">
+    <div class="titlebar-title">MoeMoe Gal!!!</div>
+    <mdui-dropdown class="userbox-titlebar" trigger="hover">
+        <div class="userbox-main" slot="trigger">
+            <div class="userbox-titlebar-nickname">{{self.uNickname|default('未登录')}}</div>
+           <mdui-avatar 
+            {% if self.uProfilePhoto is defined and self.uProfilePhoto is not empty %}
+            src="{{self.uProfilePhoto}}"
+            {% else %}
+            icon="person--outlined"
+            {% endif %}      
+            </mdui-avatar>
+        </div>
+        <mdui-menu>
+            {% if self.uNickname is defined %}
+            <mdui-menu-item href="/logout">登出</mdui-menu-item>
+            {% else %}
+            <mdui-menu-item href="/login">登录</mdui-menu-item>
+            {% endif %} 
+        </mdui-menu>
+    </mdui-dropdown>
+</div>

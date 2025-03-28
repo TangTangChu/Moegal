@@ -1,0 +1,26 @@
+.imgselector{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+.imgselector-sel{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 500px;
+}
+#imgselector-view{
+    width: 500px;
+    height: 300px;
+    object-fit: contain;
+}
+#select_mode{
+    width: 180px;
+}
+.imgselector-sel-target{
+    display: flex;
+    gap: 8px 4px;
+}

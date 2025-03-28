@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<title>分享 MoeMoe Gal!!!</title>
+	<base href="/">
+	<link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="/static/css/public/common.css">
+	<link rel="stylesheet" href="/static/css/share.css">
+	<link rel="stylesheet" href="/static/css/public/mdui.css">
+	<link rel="stylesheet" href="/static/css/public/mdicon.css">
+</head>
+<body>
+	{{ include('/public/NavigationRail.twig') }}
+	<div class="app">
+		{{ include('/public/TitleBar.twig') }}
+		<div class="main_content">
+			<div class="share-card">
+				<div class="share-card-s1">
+					<div class="share-card-text">
+						<div class="share-card-text-title">分享内容</div>
+						<div class="share-card-text-content">Ciallo～(∠・ω&lt; )⌒★！欢迎来到MoeGal分享页，在这里你可以选择分享Gal资源或者相关文章，不过在此之前你需要确保你有MoeGal的账户并且已登录。感谢你的贡献！</div>
+					</div>
+					<div class="share-card-shareswitch">
+						<div>选择要分享的内容</div>
+						<mdui-button class="share-card-shareswitch-button" href="/share/gal">分享Gal资源</mdui-button>
+						<mdui-button class="share-card-shareswitch-button" href="/share/article">分享文章</mdui-button>
+					</div>
+				</div>
+				<br>
+				<div class="share-statistic">
+					<div class="share-statistic-title">统计数据</div>
+					<div class="share-statistic-text">本站已收录 <b>{{display.galCount}}</b> 项Gal</div>
+					<div class="share-statistic-text">共有 <b>{{display.articleCount}}</b> 篇文章</div>
+					<div class="share-statistic-text">已注册用户数量 <b>{{display.userCount}}</b></div>
+					<div class="share-statistic-text">资源累计下载量 <b>{{display.totalDownloads}}</b> 次</div>
+					<div class="share-statistic-text">文章累计浏览量 <b>{{display.totalViews}}</b> 次</div>
+				</div>
+				<br>
+				<div>你还可以在<a class="pink" href="/userlist" target="_blank">此处</a>查看用户列表</div>
+			</div>
+		</div>
+	</div>
+	<script type="module" src="/static/js/public/ui_init.js"></script>
+</body>
+</html>

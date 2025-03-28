@@ -1,0 +1,47 @@
+.main_content{
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 28px;
+}
+
+.reg-card{
+    max-width: 512px;
+    width: 100%;
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 15px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    background-color: white;
+}
+.reg-card_title{
+    align-items: center;
+    display: flex;
+    justify-content: stretch;
+    padding: 14px;
+    font-size: 28px;
+    font-weight: bold;
+}
+.reg-card_addtext{
+    font-size: 18px;
+    white-space: pre-wrap;
+}
+.reg-card_uspwd{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px;
+    width: 90%;
+}
+.reg-card_action{
+    width: 75%;
+    padding: 12px;
+}
+.reg-card_textfield{
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 10px;
+    width: 100%;
+}

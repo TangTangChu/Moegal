@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<title>上传图片 MoeMoe Gal!!!</title>
+	<base href="/">
+	<link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="/static/css/public/common.css">
+	<link rel="stylesheet" href="/static/css/uploadimg.css">
+	<link rel="stylesheet" href="/static/css/public/mdui.css">
+	<link rel="stylesheet" href="/static/css/public/mdicon.css">
+</head>
+<body>
+	{{ include('/public/NavigationRail.twig') }}
+	<div class="app">
+		{{ include('/public/TitleBar.twig') }}
+		<div class="main_content">
+			<mdui-snackbar close-on-outside-click id="snackbar1"></mdui-snackbar>
+			<div class="upload-card">
+                <div class="text-title-large">上传图片</div>
+                <div class="upload-card-imgbox">
+					<div class="upload-card-imgbox-cantainer">
+						<img id="upload-card-imgview">
+						<input class="input-file-upload" type="file" accept="image/*" name="picture" id="input-imgfile" onchange="selimg(this)"/>
+					</div>
+					<div class="text-gray-small">点击或拖拽图像至上方框</div>
+                    <div class="upload-card-imginfo" id="upload-card-imginfo">图像信息</div>
+                </div>
+                <div class="text-subtitle text-effect-udl">补充信息</div>
+				<br>
+                <div class="flexbox-rowwarp-sb">
+                    <div class="flexbox-rowwarp-sb-sb-item">
+                        <mdui-text-field id="info_name" variant="outlined" placeholder="给文件一个名字" required helper="(必填)作为文件的最终名字，空格将会被替换为_" label="名称"></mdui-text-field>
+                    </div>
+                    <div class="flexbox-rowwarp-sb-sb-item">
+                        <mdui-text-field id="info_from" variant="outlined" placeholder="图片出处" helper="(选填)比如链接" label="出处"></mdui-text-field>
+                    </div>
+                    <div class="flexbox-rowwarp-sb-sb-item">
+                        <mdui-text-field id="info_author" variant="outlined" placeholder="原作者" helper="(选填)" label="原作者"></mdui-text-field>
+                    </div>
+                </div>
+                <mdui-text-field id="info_desc" rows="3" variant="outlined" placeholder="描述一下" helper="(选填)" label="描述" maxlength="322" counter=""></mdui-text-field>
+                <div class="text-gray-small">请注意，图片将在本地转换为Webp格式后上传，此操作可能需要一些时间和少量计算机资源<br>(ᗜᴗᗜ) 哼，得亏我不会WebAssembly，不然用Avif格式耗更多资源</div>
+                <div class="upload-card-buttonplace">
+                    <mdui-button icon="upload--outlined" id="upload-card-btnupl">上传</mdui-button>
+                </div>
+				<div class="upload-card-result">
+					<div class="text-subtitle text-effect-udl">上传结果</div>
+					<div class="text-gray-small" id="compsize"></div>
+					<br>
+					<mdui-tabs value="i-tab-1" variant="secondary">
+						<mdui-tab value="i-tab-1">IID</mdui-tab>
+						<mdui-tab value="i-tab-2">相对路径</mdui-tab>
+						<mdui-tab value="i-tab-3">Markdown</mdui-tab>
+						<mdui-tab-panel slot="panel" value="i-tab-1">
+							<mdui-text-field readonly id="upresult_1" variant="outlined" value="未上传"></mdui-text-field>
+						</mdui-tab-panel>
+						<mdui-tab-panel slot="panel" value="i-tab-2">
+							<mdui-text-field readonly id="upresult_2" variant="outlined" value="未上传"></mdui-text-field>
+						</mdui-tab-panel>
+						<mdui-tab-panel slot="panel" value="i-tab-3">
+							<mdui-text-field readonly id="upresult_3" variant="outlined" value="未上传"></mdui-text-field>
+						</mdui-tab-panel>
+				</div>
+            </div>
+		</div>
+	</div>
+	<script type="module" src="/static/js/uploadimg.js"></script>
+	<script type="module" src="/static/js/public/ui_init.js"></script>
+</body>
+</html>

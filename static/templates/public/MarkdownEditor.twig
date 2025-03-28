@@ -1,0 +1,41 @@
+<link rel="stylesheet" href="/static/css/public/hljs.default.min.css">
+<link rel="stylesheet" href="/static/css/public/markdownev.css"> 
+<link rel="stylesheet" href="/static/css/public/github-markdown.min.css">
+<div class="markdowneditor">
+    <div class="toolbar">
+        <mdui-button id="uploadimg" href="/upload/img" target="_blank">上传图片</mdui-button>
+        <mdui-button id="tips" variant="tonal">相关说明</mdui-button>
+        <div style="flex:1;"></div>
+        <mdui-select label="加载模板" id="mdev-select-tmp" style="width: 140px;" variant="outlined" end-icon="arrow_drop_down--outlined">
+            <mdui-menu-item value="1">Gal资源介绍</mdui-menu-item>
+        </mdui-select>
+        <mdui-button id="mdev-load-tmp" variant="text" >加载模板</mdui-button>       
+    </div>
+    <div class="EV">
+        <textarea id="rawmarkdown"></textarea>
+        <div id="editor" contenteditable="true"></div>
+        <div id="viewer" class="markdown-body"></div>  
+    </div>
+</div>
+<mdui-dialog headline="Markdown编辑预览器" icon="tips_and_updates--outlined" id="mdevtips"  close-on-esc close-on-overlay-click>
+    <div>Ciallo~本Markdown编辑预览器基于markdown-it与highlightjs库实现，已安装如下插件
+        <table>
+            <tbody>
+                <tr><td>markdown-it-emoji.js</td></tr>
+                <tr><td>markdown-it-highlightjs.js</td></tr>
+                <tr><td>markdown-it-image-figures.js</td></tr>
+                <tr><td>markdown-it-task-list.js</td></tr>
+                <tr><td>mdit-plugin-container.js</td></tr>
+                <tr><td>mdit-plugin-footnote.js</td></tr>
+                <tr><td>mdit-plugin-ruby.js</td></tr>
+            </tbody>
+        </table>
+        <hr>
+        <p>为了节约资源，此编辑器已启用防抖函数，持续的输入状态下将不进行Markdown渲染操作，用户暂停输入间隔达400ms后再进行渲染</p>
+        <p>具体说明见<a class="pink" href="/article/show?aid=3" target="_blank">此文章</a></p>
+
+    </div>
+</mdui-dialog>
+<script src="/static/js/public/markdown-it.min.js"></script>
+<script type="module" src="/static/js/mdev.js"></script>
+<script type="module" src="/static/js/mdev_loadtmp.js"></script>

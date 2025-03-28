@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<title>MoeMoe Gal!!!</title>
+	<base href="/">
+	<link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="/static/css/public/autoMatic.css">
+	<link rel="stylesheet" href="/static/css/public/common.css">
+	<link rel="stylesheet" href="/static/css/public/mdui.css">
+	<link rel="stylesheet" href="/static/css/main.css">
+	<link rel="stylesheet" href="/static/css/public/mdicon.css">
+</head>
+<body>
+	{{ include('/public/NavigationRail.twig') }}
+	<div class="app">
+		{{ include('/public/TitleBar.twig') }}
+		<div class="main_content">
+			<mdui-tooltip content="标题:お願いごと、ひとつ 画师:さくらめい UID:594074 PID:76721863 https://www.pixiv.net/artworks/76721863" placement="bottom"  id="sliderimg_info">
+			<div class="slider">
+				<div class="slide-track">
+					<div class="slide">
+						<img src="/static/images/76721863_p0_お願いごと、ひとつ.avif">
+					</div>
+					<div class="slide">
+						<img src="/static/images/77360040_p0_Key 20th anniversary.avif">
+					</div>
+					<div class="slide">
+						<img src="/static/images/104105335_p1_亚托莉 2022farewell.avif">
+					</div>
+					<div class="slide">
+						<img src="/static/images/91097936_p0_j20.avif">
+					</div>
+				</div>
+				<span class="prev" onclick="moveSlide(-1)">&#10094;</span>
+				<span class="next" onclick="moveSlide(1)">&#10095;</span>
+				<div class="indicators"></div>
+			</div>
+			<div>
+				<mdui-card style="width:100%;text-align: center;">
+					<p>MoeMoe Gal!!!是新建Gal资源站，目前只收录了部分Gal资源</p>
+					<p>欢迎各位爱好者在此投稿，分享Gal相关资源</p>
+					<p>~☆星之声终将会奏响!☆~</p>
+				</mdui-card>
+				<div class="text-title-nc text-effect-udl">近期资源</div>
+				<div class="GalCard-container">
+					{% for galItem in galList %}
+						{{include("/public/GalCard.twig")}}
+					{% endfor %}
+				</div>
+				<div class="text-title-nc text-effect-udl">近期文章</div>
+				<div class="ArticleCard-container">
+					{% for articleItem in articleList %}
+						{{include("/public/ArticleCard.twig")}}
+					{% endfor %}
+				</div>
+				<div class="text-title-nc text-effect-udl">近期活跃的贡献者</div>
+				<div class="flexbox-rowwarp">
+					{% for UserItem in RecentActiveUsers %}
+						{{include("/public/UserProfilePhotoItem.twig")}}
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="/static/js/public/autoMatic.js"></script>
+	<script type="module" src="/static/js/public/ui_init.js"></script>
+</body>
+</html>

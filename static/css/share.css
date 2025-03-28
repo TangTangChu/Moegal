@@ -1,0 +1,65 @@
+.main_content{
+    align-items: center;
+    justify-content: center;
+    gap:10px;
+}
+.share-card{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    box-sizing: border-box;
+    width: 800px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 15px;
+}
+.share-card-s1{
+    display: flex;
+    flex-direction: row;
+}
+.share-card-text{
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+}
+.share-card-text-title{
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+}
+.share-card-text-content{
+    font-size: 18px;
+}
+.share-card-shareswitch{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    gap: 8px;
+}
+.share-card-shareswitch-button{
+    width: 160px;
+}
+.share-statistic{
+    width: 600px;
+    box-sizing: border-box;
+    gap:4px;
+    font-size: 18px;
+}
+.share-statistic-title{
+    font-size: 28px;
+    font-weight: bold;
+}
+.share-statistic-text{
+    text-decoration: solid underline #f7317300 3px;
+    transition: text-decoration 0.3s ease-in-out;
+}
+.share-statistic-text:hover{
+    text-decoration: solid underline #f7317364 3px;
+}
+mdui-divider{
+    width: 90%;
+    height: 1px;
+    padding: 4px;
+    box-sizing: border-box;
+}

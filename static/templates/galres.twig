@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<title>资源  MoeMoe Gal!!!</title>
+	<base href="/">
+	<link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="/static/css/public/common.css">
+	<link rel="stylesheet" href="/static/css/public/mdui.css">
+	<link rel="stylesheet" href="/static/css/galres.css">
+	<link rel="stylesheet" href="/static/css/public/mdicon.css">
+</head>
+<body>
+	{{ include('/public/NavigationRail.twig') }}
+	<div class="app">
+		{{ include('/public/TitleBar.twig') }}
+		<div class="bg">
+			<img id="ibg" src="/static/images/76721863_p0_お願いごと、ひとつ.avif">
+			<div class="bg-title">资 源</div>
+		</div>
+		<br>
+		<div class="content">
+			<div class="content-count">
+				<b>本站已收录 {{display.count}} 项资源</b>
+			</div>
+			<br>
+			<div class="GalCard-container">
+				{% for galItem in display.galList %}
+					{{include("/public/GalCard.twig")}}
+				{% endfor %}
+			</div>
+			{{ include("/public/DropNavbar.twig")}}
+		</div>
+	</div>
+	<script type="module" src="/static/js/public/ui_init.js"></script>
+</body>
+</html>

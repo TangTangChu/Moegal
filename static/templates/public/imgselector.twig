@@ -1,0 +1,18 @@
+<div class="imgselector">
+    <img id="imgselector-view">
+    <div class="imgselector-sel">
+        <div class="imgselector-sel-target">
+            <input type="hidden" id="imgselector-mtarget">
+            <mdui-text-field id="select_tg" variant="outlined" label="目标图像"></mdui-text-field>
+            <mdui-select variant="outlined" value="sel-target2" id="select_mode" end-icon="arrow_drop_down--outlined">
+                <mdui-menu-item value="sel-target2">图像ID</mdui-menu-item>
+                <mdui-menu-item value="sel-target1">图像名称</mdui-menu-item>
+              </mdui-select>
+        </div>
+        <div class="text-gray-small text-center" id="imgselector-sel-info">图像信息</div>
+        <mdui-button id="imgselector-sel-load">加载图像</mdui-button>
+        <mdui-button id="imgselector-sel-up" href="/upload/img" target="_blank" variant="text">前往上传</mdui-button>
+    </div>
+</div>
+<link rel="stylesheet" href="/static/css/public/imgsel.css">
+<script type="module" src="/static/js/public/imgsel.js"></script>

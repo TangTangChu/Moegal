@@ -1,0 +1,12 @@
+<div class="DropNavbar">
+    <mdui-button-icon variant="tonal" id="gotolatest" icon="keyboard_double_arrow_left--outlined"></mdui-button-icon>
+    <mdui-button-icon variant="filled" id="gotoprev" icon="keyboard_arrow_left--outlined"></mdui-button-icon>
+    <mdui-button-icon variant="filled" id="gotonext" icon="keyboard_arrow_right--outlined"></mdui-button-icon>
+    <mdui-button-icon variant="tonal" id="gotooldest" icon="keyboard_double_arrow_right--outlined"></mdui-button-icon>
+    <div class="text-gray-small">共</div>
+    <div class="text-gray-small" id="sumpage">{{more.sumpage}}</div>
+    <div class="text-gray-small">页，当前</div>
+    <mdui-text-field id="dropindex" variant="111" value="{{more.index}}"></mdui-text-field>
+    <mdui-button id="btn_drop" variant="text">跳转</mdui-button>
+</div>
+<script type="module" src="/static/js/public/DropNavbar.js"></script>

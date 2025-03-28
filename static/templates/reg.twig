@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<title>注册  MoeMoe Gal!!!</title>
+	<base href="/">
+	<link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="/static/css/public/mdui.css">
+	<link rel="stylesheet" href="/static/css/public/common.css">
+	<link rel="stylesheet" href="/static/css/reg.css">
+	<link rel="stylesheet" href="/static/css/public/mdicon.css">
+</head>
+<body>
+	{{ include('/public/NavigationRail.twig') }}
+	<div class="app">
+		{{ include('/public/TitleBar.twig') }}
+		<div class="main_content">
+			<mdui-snackbar close-on-outside-click id="snackbar1"></mdui-snackbar>
+			<div class="reg-card">
+				<div class="reg-card_title">注 册</div>
+				<div class="reg-card_addtext"> 。 ∧ 一一 ∧  。      。∧ 一一 ∧  。
+／人◕ ‿‿ ◕人＼  ／人∩ ‿‿ ∩人＼
+与我签订契约    成为魔法少女吧！☆</div>
+				<div class="reg-card_uspwd">
+					<div class="reg-card_textfield">
+						<mdui-text-field variant="outlined" id="emailvalue" type="email" icon="email--outlined" required label="邮箱" placeholder="请输入您的邮箱"></mdui-text-field>
+					</div>
+					<div class="reg-card_textfield">
+						<mdui-text-field variant="outlined" id="nicknamevalue" icon="edit--outlined" maxlength="12" counter="true" required label="昵称" placeholder="请输入您的昵称"></mdui-text-field>
+					</div>
+					<div class="reg-card_textfield">
+						<mdui-text-field variant="outlined" id="passwdvalue" icon="password--outlined" minlength="6" maxlength="12" counter="true" toggle-Password="true" required label="密码" placeholder="请输入密码" type="password"></mdui-text-field>
+					</div>
+					<div class="reg-card_textfield">
+						<mdui-text-field variant="outlined" id="passwdvalue2" icon="password--outlined" minlength="6" maxlength="12" counter="true" toggle-Password="true" required label="确认密码" placeholder="请再次输入密码" type="password"></mdui-text-field>
+					</div>
+				</div>
+				<div class="reg-card_action">
+					<mdui-button variant="filled" id="btn_reg" onclick="" full-width>提交注册</mdui-button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="module" src="/static/js/public/ui_init.js"></script>
+	<script type="module" src="/static/js/reg.js"></script>
+</body>
+</html>

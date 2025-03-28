@@ -1,0 +1,312 @@
+:root{
+    --effect-color:#f7317364;
+    --effect-color-sem:#f73173bb;
+    --effect-color-none: #f7317300;
+}
+@font-face {
+    font-family: 'HarmonyOS_Sans_SC';
+    src: url('/static/fonts/HarmonyOS_Sans_SC_Regular.woff2') format('woff2');  
+    font-weight: normal; 
+    font-style: normal; 
+}
+body{
+    font-family: 'HarmonyOS_Sans_SC';
+    -webkit-font-smoothing: antialiased;  /* WebKit（Chrome/Safari） */
+    -moz-osx-font-smoothing: grayscale;   /* Firefox（macOS） */
+    text-rendering: optimizeLegibility;   /* 优化可读性 */
+}
+.main_content{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.titlebar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+}
+.titlebar-title{
+    font-size: 30px;
+    font-weight: bold;
+}
+.userbox-titlebar{
+    height: 100%;
+    width: auto;
+}
+.userbox-main{
+    height: 100%;
+    width: auto;
+    display: flex;
+    align-items: center;flex-wrap: nowrap;
+}
+.userbox-titlebar-nickname{
+    font-size: 22px;
+    font-weight: bold;
+    padding-right: 5px;
+}
+.GalCard-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px 13px;
+}
+
+.GalCard{
+    width: 300px;
+    height: 190px;
+    text-align: center;
+    display: flex;
+    outline: 0px solid #f7317364;
+    flex-direction: column;
+    border-radius: 25px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    transition: outline 0.15s ease-in-out;
+    overflow: hidden;
+}
+.GalCard:hover{
+    outline: 4px solid var(--effect-color);
+}
+.GalCard-cover{
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+}
+.GalCard-title{
+    font-size: 18px;
+    font-weight: bold;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: solid underline var(--effect-color-none) 3px;
+    transition: text-decoration 0.3s ease-in-out;
+}
+.GalCard-title:hover{
+    text-decoration: solid underline var(--effect-color) 3px;
+
+}
+
+.ArticleCard-container{
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 10px 13px;
+}
+.ArticleCard{
+    height: 350px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    border-radius: 20px;
+    outline: 0px solid var(--effect-color);
+    transition: outline 0.15s ease-in-out;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.ArticleCard:hover{
+    outline: 4px solid var(--effect-color);
+}
+.ArticleCard #cover{
+    height: 150px;
+    width: 100%;
+    object-fit: cover;
+}
+.ArticleCard .content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 8px;
+    height: 100%;
+    box-sizing: border-box;
+}
+.ArticleCard .content-text{
+    gap: 3px;
+    max-height: 135px;
+    overflow: hidden;
+}
+
+.ArticleCard .content-text-title{
+    font-size: 20px;
+}
+
+.ArticleCard .content .addinfo{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    align-items: center;
+    font-weight: bold;
+}
+.userbox-samll-bt{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 155px;
+}
+.userbox-samll-bt-prof{
+    object-fit: cover;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.user-grouptags{
+    display: flex;
+    flex-direction: row;
+    gap: 3px 6px;
+    flex-wrap: wrap;
+}
+.user-grouptags .grouptag{
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    box-sizing: border-box;
+    height: 25px;
+    border-radius: 8px;
+    font-size: 14px;
+    color: white;
+    overflow: hidden;
+    background-color: rgb(178, 71, 255);
+}
+
+hr.pink{
+    border-top: 0.6px solid var(--effect-color);
+    width: 100%;
+}
+hr.solid{
+    border-top: 1px solid rgb(161, 161, 161);
+    width: 100%;
+}
+
+a.pink {
+    color: var(--effect-color-sem);
+    text-decoration: none; 
+}
+
+a.pink:visited {
+    color: var(--effect-color-sem); 
+}
+
+a.pink:hover {
+    color: var(--effect-color); 
+}
+
+
+a.pink:active {
+    color: var(--effect-color); 
+}
+a.nonestyle{
+    text-decoration: none; 
+    cursor: default;       
+    color: inherit;
+}
+/*常用普通文本块样式*/
+.text-gray-small{
+    font-size: 14px;
+    color: gray;
+}
+.text-red-small{
+    font-size: 15px;
+    color: red;
+}
+.text-orange-small{
+    font-size: 15px;
+    color: orange;
+}
+.text-orange-medium{
+    font-size: 17.25px;
+    color: orange;
+}
+.text-subtitle{
+    font-size: 22px;
+    font-weight: bold;
+}
+.text-subtitle-large{
+    font-size: 26px;
+    font-weight: bold;
+}
+.text-title-med{
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+}
+.text-title-large{
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+}
+.text-center-std{
+    font-size: 18px;
+    text-align: center;
+}
+.text-title-nc{
+    font-size: 32px;
+    font-weight: bold;
+}
+.text-center{
+    text-align: center;
+}
+.text-effect-udl{
+    transition: text-decoration 0.3s ease-in-out;
+    text-decoration: solid underline var(--effect-color-none) 3px;
+}
+.text-effect-udl:hover{
+    text-decoration: solid underline var(--effect-color) 3px;
+}
+.text-effect-color{
+    transition: color 0.2s ease-in-out;
+}
+.text-effect-color:hover{
+    color: var(--effect-color);
+}
+.text-fullcenter{
+    text-align: center;
+    width: 100%;
+}
+.text-bold{
+    font-weight: bold;
+}
+
+.flexbox-rowwarp-sb{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px 10px;
+}
+.flexbox-rowwarp-sb-sb-item{
+    width: 350px;
+}
+.flexbox-rowwarp{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px 10px;
+}
+.DropNavbar{
+    display: flex;
+    width: 380px;
+    align-items: center;
+    height: 50px;
+}
+.DropNavbar #dropindex{
+    width: 50px;
+}
+.UserProfilePhotoItem{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    outline: 0px solid var(--effect-color);
+    transition: outline 0.1s ease-in-out;
+}
+.UserProfilePhotoItem:hover{
+    outline: 3px solid var(--effect-color);
+}

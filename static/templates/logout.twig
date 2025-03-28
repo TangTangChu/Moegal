@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<title>注销页 MoeMoe Gal!!!</title>
+	<base href="/">
+	<link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="/static/css/public/common.css">
+	<link rel="stylesheet" href="/static/css/logout.css">
+	<link rel="stylesheet" href="/static/css/public/mdui.css">
+	<link rel="stylesheet" href="/static/css/public/mdicon.css">
+</head>
+<body>
+	{{ include('/public/NavigationRail.twig') }}
+	<div class="app">
+		{{ include('/public/TitleBar.twig') }}
+		<div class="main_content">
+			<mdui-snackbar close-on-outside-click id="snackbar1"></mdui-snackbar>
+			<div class="logout-card">
+				<div class="logout-card-userinfo">
+					<img class="logout-card-bg" src="{{self.uProfileCover}}">
+					<div class="logout-card-userinfo-content">
+						<div class="logout-card-title">当前登录账户</div>
+						<img class="logout-card-userinfo-profilephoto" src="{{self.uProfilePhoto}}">
+						<div class="logout-card-userinfo-uid">UID:{{self.UID}}</div>
+						<div class="logout-card-userinfo-nickname">{{self.uNickname}}</div>
+					</div>
+				</div>
+				<div class="logout-a-nonestyleddtext" id="t1">真的要离开我吗？主人~</div>
+				<div class="logout-a-nonestylection">
+					<mdui-button variant="filled" id="btn_logout" full-width>确认注销</mdui-button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="module" src="/static/js/logout.js"></script>
+	<script type="module" src="/static/js/public/ui_init.js"></script>
+</body>
+</html>

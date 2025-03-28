@@ -1,0 +1,20 @@
+<a class="nonestyle" href="/article/show?aid={{articleItem.AID}}">
+	<div class="ArticleCard">
+		<img id="cover" src="{{articleItem.aCover}}">
+		<div class="content">
+			<div class="content-text">
+				<div class="content-text-title text-bold text-effect-udl">{{articleItem.aTitle}}</div>
+				<div class="content-text-abstract">{{articleItem.aAbstract}}</div>
+			</div>
+			<div class="addinfo">
+				{% if articleItem.uNickname is defined %}
+				<div class="userbox-samll-bt">
+					<img  src="{{articleItem.uProfilePhoto}}" class="userbox-samll-bt-prof">
+					<div>{{articleItem.uNickname}}</div>
+				</div>
+				{% endif %}
+				<div>{{articleItem.aDateTime|date("Y-m-d")}}</div>
+			</div>
+		</div>
+	</div>
+</a>

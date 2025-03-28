@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<title>分享 MoeMoe Gal!!!</title>
+	<base href="/">
+	<link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="/static/css/public/common.css">
+	<link rel="stylesheet" href="/static/css/sharearticle.css">
+	<link rel="stylesheet" href="/static/css/public/mdui.css">
+	<link rel="stylesheet" href="/static/css/public/mdicon.css">
+</head>
+<body>
+	{{ include('/public/NavigationRail.twig') }}
+	<div class="app">
+		{{ include('/public/TitleBar.twig') }}
+		<div class="main_content">
+			<mdui-snackbar close-on-outside-click id="snackbar1"></mdui-snackbar>
+			<div class="shareartc-card">
+                <div class="shareartc-card-title">分享文章</div>
+                <div class="shareartc-card-t2">标题</div>
+                <mdui-text-field id="shareartc-card-title" variant="outlined" required="" label="文章标题" id="share-title"></mdui-text-field>
+				<div class="shareartc-card-t2">选择封面</div>
+				{{ include('/public/imgselector.twig') }}
+                <div class="shareartc-card-t2">文章内容（Markdown语法）</div>
+				{{ include('/public/MarkdownEditor.twig') }}
+                <div class="share-artc-cgroup">
+                    <mdui-checkbox id="shareartc-isreprint">是否转载</mdui-checkbox>
+                    <mdui-select label="选择协议" variant="outlined" value="1" id="share-bylic" end-icon="arrow_drop_down--outlined">
+                        <mdui-menu-item value="1">CC BY-NC-SA 4.0 署名—非商业性使用—相同方式共享 4.0 协议国际版</mdui-menu-item>
+						<mdui-menu-item value="2">CC BY-NC-SA 3.0 CN 署名-非商业性使用-相同方式共享 3.0中国大陆</mdui-menu-item>
+						<mdui-menu-item value="3">无协议</mdui-menu-item>
+                      </mdui-select>
+                </div>
+				<mdui-button id="shareartc_submit">提交</mdui-button>
+            </div>
+		</div>
+	</div>
+	<script type="module" src="/static/js/uploadartc.js"></script>
+	<script type="module" src="/static/js/public/ui_init.js"></script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+<a class="nonestyle" href="/galres/show?gid={{galItem.GID}}" target="_blank">
+    <mdui-tooltip variant="rich" content="{{galItem.gAbstract}}">
+        <div class="GalCard">
+            <img class="GalCard-cover" src="{{galItem.gCover}}">
+            <div class="GalCard-title">
+                {% if galItem.gDisplayName == 1 %}{{galItem.gTranslation}}{% else %}{{galItem.gName}}{% endif %}</div>
+        </div>
+    </mdui-tooltip>
+</a>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<title>{% if display.gDisplayName == 1 %}{{display.gTranslation}}{% else %}{{display.gName}}{% endif %} - MoeMoe Gal!!!</title>
+	
+	<link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="/static/css/public/mdui.css">
+	<link rel="stylesheet" href="/static/css/public/common.css">
+	<link rel="stylesheet" href="/static/css/galrescontent.css">
+	<link rel="stylesheet" href="/static/css/public/mdicon.css">
+    <link rel="stylesheet" href="/static/css/public/github-markdown.min.css">
+</head>
+<body>
+	{{ include('/public/NavigationRail.twig') }}
+	<div class="app">
+		{{ include('/public/TitleBar.twig') }}
+		<div class="main_content">
+			<div class="galresc-info" data-gid="{{display.GID}}">
+                    <img class="galresc-info-cover" src="{{display.gCover}}">
+                    <div class="galresc-info-base">
+                      <div class="galresc-info-base-title">
+                        {% if display.gDisplayName == 1 %}
+                        <div class="galresc-info-base-title-main">{{display.gTranslation}}</div>  
+                        <div class="galresc-info-base-title-sub">{{display.gName}}</div>
+                        {% else %}
+                        <div class="galresc-info-base-title-main">{{display.gName}}</div>  
+                        <div class="galresc-info-base-title-sub">{{display.gTranslation}}</div>
+                        {% endif %}
+                      </div>
+                      <div class="galresc-info-base-other">
+                        <div class="text-gray-small">{{display.gAbstract}}</div>
+                        <div class="galrecs-info-base-other-text">首次发行日期：{{display.gReleased|date("Y年m月d日")}}
+                        制作公司：{{display.gDeveloper}}
+                        其他翻译：{{display.gTranslationsAliases|default("无")}}
+                        </div>
+                        <div class="galrecs-info-base-other-tag">
+                            {% for tag in display.gTagarray %}
+                            <div class="galrecs-info-base-other-tag-item">{{tag}}</div>
+                            {% endfor %}
+                        </div>
+                      </div>
+                </div>
+            </div>
+            <div class="galresc-content">
+                <div class="markdown-body" id="markdownViewer" data-rawmd="{{display.gDesc}}">
+                    <div style="display: flex;flex-direction:column;align-items:center;">
+                        <mdui-linear-progress id="article_loading"></mdui-linear-progress>
+                        <div class="text-center-std"><b>渲染中</b></div>
+                    </div>
+                </div>
+            </div>
+            <div class="galresc-addinfo">
+                <div style="align-items: center;display:flex;flex-direction:row"><mdui-button-icon icon="warning--outlined"></mdui-button-icon>本网站资源为广大爱好者上传，不得用于非法用途!</div>
+                <table>
+					<tbody>
+						<tr>
+							<td>资源上传者</td>
+							<td><a class="nonestyle text-effect-color text-bold" href="/user?uid={{display.gUID}}">{{display.uNickname}}</a></td>
+						</tr>
+						<tr>
+							<td>上传时间</td>
+							<td>{{display.gUploadTime|date("Y-m-d H:m:s","Asia/Shanghai")}} (UTC/GMT+08:00)</td>
+						</tr>
+						<tr>
+							<td>文件大小</td>
+							<td>{{display.gSize}} MiB</td>
+						</tr>
+					</tbody>
+				</table>
+            </div>
+            <div class="galresc-action">
+                <mdui-button id="btn_download" href="{{display.gReslink}}">下载资源</mdui-button>
+            </div>
+	</div>
+	<script type="module" src="/static/js/public/ui_init.js"></script>
+    <script src="/static/js/public/markdown-it.min.js"></script>
+    <script type="module" src="/static/js/public/MarkdownBodyRender.js"></script>
+    <script type="module" src="/static/js/gal_downloads_stats.js"></script>
+</body>
+</html>

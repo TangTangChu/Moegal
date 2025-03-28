@@ -1,0 +1,8 @@
+/**
+ * Bundled by jsDelivr using Rollup v2.79.2 and Terser v5.37.0.
+ * Original file: /npm/@mdit/plugin-container@0.16.0/lib/index.js
+ *
+ * Do NOT use SRI with dynamically generated files! More information: https://www.jsdelivr.com/using-sri-with-dynamic-files
+ */
+const e=(e,{name:r,marker:n=":",validate:t=e=>e.trim().split(" ",2)[0]===r,openRender:o=(e,n,t,o,a)=>(e[n].attrJoin("class",r),a.renderToken(e,n,t)),closeRender:a=(e,r,n,t,o)=>o.renderToken(e,r,n)}={name:""})=>{const s=n[0],c=n.length;e.block.ruler.before("fence",`container_${r}`,((e,o,a,l)=>{let i=e.bMarks[o]+e.tShift[o],p=e.eMarks[o];if(s!==e.src[i])return!1;let k=i+1;for(;k<=p&&n[(k-i)%c]===e.src[k];)k++;const f=Math.floor((k-i)/c);if(f<3)return!1;k-=(k-i)%c;const u=e.src.slice(i,k),d=e.src.slice(k,p);if(!t(d,u))return!1;if(l)return!0;let b=o,M=!1;for(;b<a&&(b++,i=e.bMarks[b]+e.tShift[b],p=e.eMarks[b],!(i<p&&e.sCount[b]<e.blkIndent));)if(s===e.src[i]&&e.sCount[b]-e.blkIndent<4){for(k=i+1;k<=p&&n[(k-i)%c]===e.src[k];k++);if(Math.floor((k-i)/c)>=f&&(k-=(k-i)%c,k=e.skipSpaces(k),k>=p)){M=!0;break}}const _=e.parentType,h=e.lineMax;e.parentType="container",e.lineMax=b;const m=e.push(`container_${r}_open`,"div",1);m.markup=u,m.block=!0,m.info=d,m.map=[o,b],e.md.block.tokenize(e,o+1,b);const x=e.push(`container_${r}_close`,"div",-1);return x.markup=e.src.slice(i,k),x.block=!0,e.parentType=_,e.lineMax=h,e.line=b+(M?1:0),!0}),{alt:["paragraph","reference","blockquote","list"]}),e.renderer.rules[`container_${r}_open`]=o,e.renderer.rules[`container_${r}_close`]=a};export{e as container};export default null;
+//# sourceMappingURL=/sm/7fc3a7247979b061c7e61bc18ae13e1d4573165b14e919f7e19b9afb9c70b2c5.map
